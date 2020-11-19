@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  status: MyString
+  species: MyString
+  series: MyString
+  gender: MyString
+  image: MyString
+  url: MyString
+  planet: one
+
+two:
+  name: MyString
+  status: MyString
+  species: MyString
+  series: MyString
+  gender: MyString
+  image: MyString
+  url: MyString
+  planet: two
