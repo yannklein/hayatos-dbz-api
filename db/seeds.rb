@@ -3,7 +3,11 @@ Character.destroy_all
 Planet.destroy_all
 puts 'Database Cleared'
 
-url_prefix = 'localhost:3000/api/v1'
+if Rails.env.development?
+  url_prefix = 'localhost:3000/api/v1'
+elsif Rails.env.production?
+  url_prefix = 'https://dragonball-wiki-api.herokuapp.com/api/v1'
+end
 
 puts '#### Creating planets and characters ######'
 
@@ -458,3 +462,5 @@ Character.create(
 Character.all.each do |character|
   character.update(url: "#{url_prefix}/characters/#{character.id}")
 end
+
+puts 'Characters & Planets Created'
