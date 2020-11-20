@@ -227,8 +227,21 @@ button.button-blue {
   background-color: lightgrey;
   color: steelblue;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  a {
+    color: steelblue;
+    padding: 2px 8px;
+    border: 2px solid steelblue;
+    border-radius: 8px;
+    transition: all .2s;
+    &:hover {
+      transition: all .2s;
+      color: salmon;
+      border: 2px solid salmon;
+    }
+  }
 }
 
 small {
