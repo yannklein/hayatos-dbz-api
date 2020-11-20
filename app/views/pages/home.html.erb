@@ -36,8 +36,12 @@
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters'
 response = RestClient.get(url)
-all_characters_array = JSON.parse(response) 
-</code></pre>
+all_characters_array = JSON.parse(response)
+
+all_characters_array[0]['name'] #=> 'Bardock'
+
+raditz = all_characters_array[1]
+raditz['planet']['name'] #=> 'Planet Vegeta'</code></pre>
 </figure>
 
 <h4>Results in this: (array of hashes, containing character information)</h4>
@@ -54,7 +58,11 @@ all_characters_array = JSON.parse(response)
     "gender"=>"Male",
     "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858841/dragonball-wiki-api/Characters/Bardock_ymq9sy.png",
     "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/4",
-    "planet_id"=>3
+    "planet": {
+      "id": 6,
+      "name": "Planet Vegeta",
+      "url": "https://dragonball-wiki-api.herokuapp.com/api/v1/planets/6"
+    }
   },
 
   {
@@ -66,7 +74,11 @@ all_characters_array = JSON.parse(response)
     "gender"=>"Male",
     "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858855/dragonball-wiki-api/Characters/Raditz_l4efuy.png",
     "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/5",
-    "planet_id"=>3
+    "planet": {
+      "id": 6,
+      "name": "Planet Vegeta",
+      "url": "https://dragonball-wiki-api.herokuapp.com/api/v1/planets/6"
+    }
   }
 ]</code></pre>
 </figure>
@@ -84,8 +96,12 @@ all_characters_array = JSON.parse(response)
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters/8'
 response = RestClient.get(url)
-character = JSON.parse(response) 
-</code></pre>
+character = JSON.parse(response)
+
+character['name'] #=> 'Pan'
+
+
+character['planet']['name'] #=> 'Earth'</code></pre>
 </figure>
 
 <h4>Results in this: (A hash with one character's information)</h4>
@@ -101,7 +117,11 @@ character = JSON.parse(response)
   "gender"=>"Female",
   "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858851/dragonball-wiki-api/Characters/Pan_fhmk1w.png",
   "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20",
-  "planet_id"=>4
+  "planet": {
+    "id": 5,
+    "name": "Earth",
+    "url": "https://dragonball-wiki-api.herokuapp.com/api/v1/planets/5"
+  }
 }</code></pre>
 </figure>
 
@@ -111,38 +131,75 @@ character = JSON.parse(response)
 
 
 
-<h3>Example 3: Get ALL planets <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-2')">Show Ruby Code</button></span></h3>
-<figure id="ruby-example-2" style="display: none">
+<h3>Example 3: Get ALL planets <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-3')">Show Ruby Code</button></span></h3>
+<figure id="ruby-example-3" style="display: none">
   <pre 
-    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters/8'
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/planets'
 response = RestClient.get(url)
-character = JSON.parse(response) 
-</code></pre>
+all_planets_array = JSON.parse(response)
+
+all_planets_array[1] #=> { "id"=>7, "name"=>"Earth"...}
+
+all_planets_array[1]["name"] #=> "Earth"</code></pre>
 </figure>
 
 <h4>Results in this: (array of hashes, each containing planet information)</h4>
 <figure>
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">// Array of planets
-{
-  "id"=>20,
-  "name"=>"Pan",
-  "status"=>"Alive",
-  "species"=>"Saiyan/Human",
-  "series"=>"Z",
-  "gender"=>"Female",
-  "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858851/dragonball-wiki-api/Characters/Pan_fhmk1w.png",
-  "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20",
-  "planet_id"=>4
-}</code></pre>
+[
+  {
+    "id"=>6
+    "name"=>"Planet Vegeta"
+    "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858749/dragonball-wiki-api/Planets/Planet_Vegeta_oyajmw.png"
+    "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/planets/6"
+  },
+
+  {
+    "id"=>7
+    "name"=>"Earth"
+    "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858749/dragonball-wiki-api/Planets/Earth_hglvfm.png"
+    "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/planets/7"
+  }
+]</code></pre>
 </figure>
 
 
+  
+
+<div class="border-bottom"></div>
+
+
+
+
+<h3>Example 2: Get ONE character <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-4')">Show Ruby Code</button></span></h3>
+<figure id="ruby-example-4" style="display: none">
+  <pre 
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/planets/8'
+response = RestClient.get(url)
+planet = JSON.parse(response)
+
+planet['name'] #=> 'Planet Vegeta'
+
+
+planet['natives'] #=> ["character url 1, character url 2..."]</code></pre>
+</figure>
+
+<h4>Results in this: (A hash with one planet's information & a list of character urls from that planet)</h4>
 <figure>
   <pre 
-    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">{
-
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">// Single planet hash
+{
+  "id": 8,
+  "name": "Namek",
+  "image": "https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858748/dragonball-wiki-api/Planets/Namek_xtyloj.png",
+  "url": "https://dragonball-wiki-api.herokuapp.com/api/v1/planets/8",
+  "natives": [
+    "https://dragonball-wiki-api.herokuapp.com/api/v1/characters/36",
+    "https://dragonball-wiki-api.herokuapp.com/api/v1/characters/37"
+  ]
 }</code></pre>
+</figure>
 </figure>
 
 
