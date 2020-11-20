@@ -14,12 +14,15 @@
   </head>
 
   <body>
-    <div class="header"></div>
+    <div class="header">
+      <%= image_tag "dragonball_logo.png", id: 'dragonball-logo' %>
+    </div>
     <div class="content-container">
       <%= yield %>
     </div>
     <div class="footer">
-      <h4>Made by Hayato</h4>
+      <h4>Made by Hayato. 2020</h4>
+      <h4></h4>
     </div>
   </body>
 </html>

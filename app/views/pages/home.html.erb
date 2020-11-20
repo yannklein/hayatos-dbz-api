@@ -10,10 +10,21 @@
 <h2>How to use this API:</h2>
 
 <ul>
-  <li>Data is returned in JSON format. To make sure it's easily readable in your browser, you can use the JSON formatter chrome extension or something similar.</li>
+  <li>
+    Click one of the buttons above to view all of that type.<br>
+    Click the urls to get information about specific characters or planets.
+  </li>
+
+  <li>
+    Utilize the data stored here to create your own website.
+  </li>
+
+  <li>Data is returned in JSON format. To make sure it's easily readable in your browser, you should use the JSON formatter chrome extension or something similar.</li>
+
   <li>
     Be sure to pay attention to the url suffixes for information.<br>
   </li>
+  
   <li>
     Example of a url:<br>
     https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20<br><br>
@@ -31,7 +42,7 @@
 
 
 
-<h3>Example 1: Get ALL characters <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-1')">Show Ruby Code</button></span></h3>
+<h3>Example 1: Get ALL characters <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-1')">Show Ruby Code</button></span><span><small>** try to write your own code before viewing the example!</small></span></h3>
 <figure id="ruby-example-1" style="display: none">
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters'
@@ -91,7 +102,7 @@ raditz['planet']['name'] #=> 'Planet Vegeta'</code></pre>
 
 
 
-<h3>Example 2: Get ONE character <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-2')">Show Ruby Code</button></span></h3>
+<h3>Example 2: Get ONE character <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-2')">Show Ruby Code</button></span><span><small>** try to write your own code before viewing the example!</small></span></h3>
 <figure id="ruby-example-2" style="display: none">
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters/8'
@@ -131,7 +142,7 @@ character['planet']['name'] #=> 'Earth'</code></pre>
 
 
 
-<h3>Example 3: Get ALL planets <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-3')">Show Ruby Code</button></span></h3>
+<h3>Example 3: Get ALL planets <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-3')">Show Ruby Code</button></span><span><small>** try to write your own code before viewing the example!</small></span></h3>
 <figure id="ruby-example-3" style="display: none">
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/planets'
@@ -172,7 +183,7 @@ all_planets_array[1]["name"] #=> "Earth"</code></pre>
 
 
 
-<h3>Example 2: Get ONE character <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-4')">Show Ruby Code</button></span></h3>
+<h3>Example 4: Get ONE planet <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-4')">Show Ruby Code</button></span><span><small>** try to write your own code before viewing the example!</small></span></h3>
 <figure id="ruby-example-4" style="display: none">
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/planets/8'
@@ -200,12 +211,6 @@ planet['natives'] #=> ["character url 1, character url 2..."]</code></pre>
   ]
 }</code></pre>
 </figure>
-</figure>
-
-
-
-
-
 
 
 
