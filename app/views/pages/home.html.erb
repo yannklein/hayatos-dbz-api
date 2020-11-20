@@ -1,5 +1,10 @@
 <% url_prefix = Rails.env.development? ? 'localhost:3000/api/v1' : 'dragonball-wiki-api.herokuapp.com/api/v1' %>
 
+<div class="flex-evenly">
+  <%= link_to 'See all characters', api_v1_characters_path, class: "button" %>
+  <%= link_to 'See all planets', api_v1_planets_path, class: "button button-blue" %>
+</div>
+
 <h1>Dragonball Wiki API V1</h1>
 <p>This site was made for educational purposes and for practicing interacting with an API.</p>
 <h2>How to use this API:</h2>
@@ -18,8 +23,16 @@
   </li>
 </ul>
 
-<h4>Example: Get all the characters</h4>
-<figure>
+
+
+
+<div class="border-bottom"></div>
+
+
+
+
+<h3>Example 1: Get ALL characters <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-1')">Show Ruby Code</button></span></h3>
+<figure id="ruby-example-1" style="display: none">
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters'
 response = RestClient.get(url)
@@ -60,10 +73,26 @@ all_characters_array = JSON.parse(response)
 
 
 
-<h4>Results in this:</h4>
+
+<div class="border-bottom"></div>
+
+
+
+
+<h3>Example 2: Get ONE character <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-2')">Show Ruby Code</button></span></h3>
+<figure id="ruby-example-2" style="display: none">
+  <pre 
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters/8'
+response = RestClient.get(url)
+character = JSON.parse(response) 
+</code></pre>
+</figure>
+
+<h4>Results in this: (A hash with one character's information)</h4>
 <figure>
   <pre 
-    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">{
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">// Single character hash
+{
   "id"=>20,
   "name"=>"Pan",
   "status"=>"Alive",
@@ -76,6 +105,39 @@ all_characters_array = JSON.parse(response)
 }</code></pre>
 </figure>
 
+
+<div class="border-bottom"></div>
+
+
+
+
+<h3>Example 3: Get ALL planets <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-2')">Show Ruby Code</button></span></h3>
+<figure id="ruby-example-2" style="display: none">
+  <pre 
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters/8'
+response = RestClient.get(url)
+character = JSON.parse(response) 
+</code></pre>
+</figure>
+
+<h4>Results in this: (array of hashes, each containing planet information)</h4>
+<figure>
+  <pre 
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">// Array of planets
+{
+  "id"=>20,
+  "name"=>"Pan",
+  "status"=>"Alive",
+  "species"=>"Saiyan/Human",
+  "series"=>"Z",
+  "gender"=>"Female",
+  "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858851/dragonball-wiki-api/Characters/Pan_fhmk1w.png",
+  "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20",
+  "planet_id"=>4
+}</code></pre>
+</figure>
+
+
 <figure>
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">{
@@ -83,10 +145,12 @@ all_characters_array = JSON.parse(response)
 }</code></pre>
 </figure>
 
-<div class="flex-evenly">
-  <%= link_to 'See all characters', api_v1_characters_path, class: "button" %>
-  <%= link_to 'See all planets', api_v1_planets_path, class: "button button-blue" %>
-</div>
+
+
+
+
+
+
 
 <script>
   // Adds numbers to code examples.
@@ -118,4 +182,21 @@ all_characters_array = JSON.parse(response)
       pre[i].className = 'line-numbers';
     }  
   })();
+
+  // Function to hide / show rails example code.
+  function myFunction(button, elToHide) {
+    if (button.innerText === "Show Ruby Code") {
+      button.innerText = "Hide Ruby Code";
+      button.style.backgroundColor = "orangered";
+    } else {
+      button.innerText = "Show Ruby Code"
+      button.style.backgroundColor = "steelblue";
+    }
+    var x = document.getElementById(elToHide);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
 </script>
