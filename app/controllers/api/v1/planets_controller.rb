@@ -5,7 +5,9 @@ class Api::V1::PlanetsController < Api::V1::BaseController
     @planets = Planet.all
   end
 
-  def show; end
+  def show
+    @characters = @planet.characters
+  end
 
   private
 
