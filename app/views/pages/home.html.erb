@@ -1,0 +1,64 @@
+<% url_prefix = Rails.env.development? ? 'localhost:3000/api/v1' : 'dragonball-wiki-api.herokuapp.com/api/v1' %>
+
+<h1>Dragonball Wiki API V1</h1>
+<p>This site was made for educational purposes and for practicing interacting with an API.</p>
+<h2>How to use this API:</h2>
+
+<ul>
+  <li>Data is returned in JSON format. To make sure it's easily readable in your browser, you can use the JSON formatter chrome extension or something similar.</li>
+  <li>
+    b
+  </li>
+</ul>
+
+<figure>
+  <pre 
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">{
+  "id"=>20,
+  "name"=>"Pan",
+  "status"=>"Alive",
+  "species"=>"Saiyan/Human",
+  "series"=>"Z",
+  "gender"=>"Female",
+  "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858851/dragonball-wiki-api/Characters/Pan_fhmk1w.png",
+  "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20",
+  "planet_id"=>4
+}</code></pre>
+</figure>
+
+<div class="flex-evenly">
+  <%= link_to 'See all characters', api_v1_characters_path, class: "button" %>
+  <%= link_to 'See all planets', api_v1_planets_path, class: "button button-blue" %>
+</div>
+
+<script>
+  // Adds numbers to code examples.
+  (function()
+  {
+    if(typeof(window.getComputedStyle) == 'undefined') 
+    { 
+      return; 
+    }
+    var pre = document.getElementsByTagName('pre');
+    for(var len = pre.length, i = 0; i < len; i ++)
+    {
+      var code = pre[i].getElementsByTagName('code').item(0);
+      if(!code)
+      {
+        code = pre[i].getElementsByTagName('samp').item(0);
+        if(!code)
+        {
+          continue;
+        }
+      }
+      var column = document.createElement('div');
+      column.setAttribute('aria-hidden', 'true');
+      for(var n = 0; n < code.innerHTML.split(/\n/g).length; n++) // Splits code by linebreak, for each linebreak it adds a number span.
+      {
+        column.appendChild(document.createElement('span'));
+      }
+      pre[i].insertBefore(column, code);
+      pre[i].className = 'line-numbers';
+    }  
+  })();
+</script>
