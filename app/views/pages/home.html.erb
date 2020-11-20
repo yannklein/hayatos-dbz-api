@@ -7,10 +7,60 @@
 <ul>
   <li>Data is returned in JSON format. To make sure it's easily readable in your browser, you can use the JSON formatter chrome extension or something similar.</li>
   <li>
-    b
+    Be sure to pay attention to the url suffixes for information.<br>
+  </li>
+  <li>
+    Example of a url:<br>
+    https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20<br><br>
+    <strong>Base url:</strong> <em>https://dragonball-wiki-api.herokuapp.com/</em><br><br>
+    <strong>Extension:</strong> <em>api/v1/characters/20</em><br>
+    (Gets character with the ID of 20)
   </li>
 </ul>
 
+<h4>Example: Get all the characters</h4>
+<figure>
+  <pre 
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters'
+response = RestClient.get(url)
+all_characters_array = JSON.parse(response) 
+</code></pre>
+</figure>
+
+<h4>Results in this: (array of hashes, containing character information)</h4>
+<figure>
+  <pre 
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">// all_characters_array
+[
+  {
+    "id"=>4,
+    "name"=>"Bardock",
+    "status"=>"Dead",
+    "species"=>"Saiyan",
+    "series"=>"Z",
+    "gender"=>"Male",
+    "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858841/dragonball-wiki-api/Characters/Bardock_ymq9sy.png",
+    "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/4",
+    "planet_id"=>3
+  },
+
+  {
+    "id"=>5,
+    "name"=>"Raditz",
+    "status"=>"Dead",
+    "species"=>"Saiyan",
+    "series"=>"Z",
+    "gender"=>"Male",
+    "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858855/dragonball-wiki-api/Characters/Raditz_l4efuy.png",
+    "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/5",
+    "planet_id"=>3
+  }
+]</code></pre>
+</figure>
+
+
+
+<h4>Results in this:</h4>
 <figure>
   <pre 
     aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">{
@@ -23,6 +73,13 @@
   "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858851/dragonball-wiki-api/Characters/Pan_fhmk1w.png",
   "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20",
   "planet_id"=>4
+}</code></pre>
+</figure>
+
+<figure>
+  <pre 
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">{
+
 }</code></pre>
 </figure>
 

@@ -19,12 +19,16 @@
    font-family: 'Hind Siliguri', sans-serif;
 }
 
- body {
+.content-container {
    width: 85%;
    display: flex;
    flex-direction: column;
    background-color: #FFFFFF;
    margin: 0 auto;
+ }
+
+ h4, h5 {
+   margin: 0;
  }
 
  .button {
@@ -58,7 +62,8 @@ figure {
   padding: 8px;
   width: 100%;
   align-self: flex-start;
-  margin: 16px 0;
+  margin: 0;
+  margin-bottom: 16px;
 }
 pre {
   -moz-tab-size:4;
@@ -173,4 +178,15 @@ pre i, pre em, pre i *, pre em *, pre i * *, pre em * *
   text-decoration:none;
   font-style:normal;
   color:#c55;
+}
+
+
+.header {
+  margin: 0;
+  width: 100vw;
+  height: 200px;
+  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/87130cc4-b297-4d4c-8fbf-5a26937514c3/daxn5se-22da1e01-7201-4535-a123-44d391e6bac1.png/v1/fill/w_1344,h_595,strp/dragon_ball_super_logo_by_victormontecinos_daxn5se-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMzYwIiwicGF0aCI6IlwvZlwvODcxMzBjYzQtYjI5Ny00ZDRjLThmYmYtNWEyNjkzNzUxNGMzXC9kYXhuNXNlLTIyZGExZTAxLTcyMDEtNDUzNS1hMTIzLTQ0ZDM5MWU2YmFjMS5wbmciLCJ3aWR0aCI6Ijw9MzA3MiJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.rxj1nIjTfVOI5Rh9UF3gc89g-lifC1G0F_mYPjGtPDw);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
