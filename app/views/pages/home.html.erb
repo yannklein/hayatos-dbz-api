@@ -1,5 +1,3 @@
-<% url_prefix = Rails.env.development? ? 'localhost:3000/api/v1' : 'hayatos-dbz-api.herokuapp.com/api/v1' %>
-
 <div class="flex-evenly">
   <%= link_to 'See all characters', api_v1_characters_path, class: "button" %>
   <%= link_to 'See all planets', api_v1_planets_path, class: "button button-blue" %>
@@ -27,8 +25,8 @@
   
   <li>
     Example of a url:<br>
-    https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20<br><br>
-    <strong>Base url:</strong> <em>https://dragonball-wiki-api.herokuapp.com/</em><br><br>
+    <%= @url_prefix %>/api/v1/characters/20<br><br>
+    <strong>Base url:</strong> <em><%= @url_prefix %>/</em><br><br>
     <strong>Extension:</strong> <em>api/v1/characters/20</em><br>
     (Gets character with the ID of 20)
   </li>
@@ -45,7 +43,7 @@
 <h3>Example 1: Get ALL characters <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-1')">Show Ruby Code</button></span><span><small>** try to write your own code before viewing the example!</small></span></h3>
 <figure id="ruby-example-1" style="display: none">
   <pre 
-    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters'
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = '<%= @url_prefix %>/api/v1/characters'
 response = RestClient.get(url)
 all_characters_array = JSON.parse(response)
 
@@ -68,11 +66,11 @@ raditz['planet']['name'] #=> 'Planet Vegeta'</code></pre>
     "series"=>"Z",
     "gender"=>"Male",
     "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858841/dragonball-wiki-api/Characters/Bardock_ymq9sy.png",
-    "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/4",
+    "url"=>"<%= @url_prefix %>/api/v1/characters/4",
     "planet": {
       "id": 6,
       "name": "Planet Vegeta",
-      "url": "https://dragonball-wiki-api.herokuapp.com/api/v1/planets/6"
+      "url": "<%= @url_prefix %>/api/v1/planets/6"
     }
   },
 
@@ -84,11 +82,11 @@ raditz['planet']['name'] #=> 'Planet Vegeta'</code></pre>
     "series"=>"Z",
     "gender"=>"Male",
     "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858855/dragonball-wiki-api/Characters/Raditz_l4efuy.png",
-    "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/5",
+    "url"=>"<%= @url_prefix %>/api/v1/characters/5",
     "planet": {
       "id": 6,
       "name": "Planet Vegeta",
-      "url": "https://dragonball-wiki-api.herokuapp.com/api/v1/planets/6"
+      "url": "<%= @url_prefix %>/api/v1/planets/6"
     }
   }
 ]</code></pre>
@@ -105,7 +103,7 @@ raditz['planet']['name'] #=> 'Planet Vegeta'</code></pre>
 <h3>Example 2: Get ONE character <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-2')">Show Ruby Code</button></span><span><small>** try to write your own code before viewing the example!</small></span></h3>
 <figure id="ruby-example-2" style="display: none">
   <pre 
-    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/characters/8'
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = '<%= @url_prefix %>/api/v1/characters/8'
 response = RestClient.get(url)
 character = JSON.parse(response)
 
@@ -127,11 +125,11 @@ character['planet']['name'] #=> 'Earth'</code></pre>
   "series"=>"Z",
   "gender"=>"Female",
   "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858851/dragonball-wiki-api/Characters/Pan_fhmk1w.png",
-  "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/characters/20",
+  "url"=>"<%= @url_prefix %>/api/v1/characters/20",
   "planet": {
     "id": 5,
     "name": "Earth",
-    "url": "https://dragonball-wiki-api.herokuapp.com/api/v1/planets/5"
+    "url": "<%= @url_prefix %>/api/v1/planets/5"
   }
 }</code></pre>
 </figure>
@@ -145,7 +143,7 @@ character['planet']['name'] #=> 'Earth'</code></pre>
 <h3>Example 3: Get ALL planets <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-3')">Show Ruby Code</button></span><span><small>** try to write your own code before viewing the example!</small></span></h3>
 <figure id="ruby-example-3" style="display: none">
   <pre 
-    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/planets'
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = '<%= @url_prefix %>/api/v1/planets'
 response = RestClient.get(url)
 all_planets_array = JSON.parse(response)
 
@@ -163,14 +161,14 @@ all_planets_array[1]["name"] #=> "Earth"</code></pre>
     "id"=>6
     "name"=>"Planet Vegeta"
     "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858749/dragonball-wiki-api/Planets/Planet_Vegeta_oyajmw.png"
-    "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/planets/6"
+    "url"=>"<%= @url_prefix %>/api/v1/planets/6"
   },
 
   {
     "id"=>7
     "name"=>"Earth"
     "image"=>"https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858749/dragonball-wiki-api/Planets/Earth_hglvfm.png"
-    "url"=>"https://dragonball-wiki-api.herokuapp.com/api/v1/planets/7"
+    "url"=>"<%= @url_prefix %>/api/v1/planets/7"
   }
 ]</code></pre>
 </figure>
@@ -186,7 +184,7 @@ all_planets_array[1]["name"] #=> "Earth"</code></pre>
 <h3>Example 4: Get ONE planet <span><button class="button-blue" onclick="myFunction(this, 'ruby-example-4')">Show Ruby Code</button></span><span><small>** try to write your own code before viewing the example!</small></span></h3>
 <figure id="ruby-example-4" style="display: none">
   <pre 
-    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = 'https://dragonball-wiki-api.herokuapp.com/api/v1/planets/8'
+    aria-describedby="example1-description"><code contenteditable="true" tabindex="0" spellcheck="false">url = '<%= @url_prefix %>/api/v1/planets/8'
 response = RestClient.get(url)
 planet = JSON.parse(response)
 
@@ -204,10 +202,10 @@ planet['natives'] #=> ["character url 1, character url 2..."]</code></pre>
   "id": 8,
   "name": "Namek",
   "image": "https://res.cloudinary.com/hmgjpnzby/image/upload/v1605858748/dragonball-wiki-api/Planets/Namek_xtyloj.png",
-  "url": "https://dragonball-wiki-api.herokuapp.com/api/v1/planets/8",
+  "url": "<%= @url_prefix %>/api/v1/planets/8",
   "natives": [
-    "https://dragonball-wiki-api.herokuapp.com/api/v1/characters/36",
-    "https://dragonball-wiki-api.herokuapp.com/api/v1/characters/37"
+    "<%= @url_prefix %>/api/v1/characters/36",
+    "<%= @url_prefix %>/api/v1/characters/37"
   ]
 }</code></pre>
 </figure>
