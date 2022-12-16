@@ -6,7 +6,7 @@ puts 'Database Cleared'
 if Rails.env.development?
   url_prefix = 'localhost:3000/api/v1'
 elsif Rails.env.production?
-  url_prefix = 'https://dragonball-wiki-api.herokuapp.com/api/v1'
+  url_prefix = '/api/v1'
 end
 
 puts '#### Creating planets and characters ######'
